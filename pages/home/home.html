@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<h2>HYPERFIT Ideal Weight Calculator</h2>
+	<p>
+    The HYPERFIT company prioritzes your health and fitness. Our company helps you to live free at ease without diease and condition your body for the better.
+	</p>
+  <p>
+    The Ideal Weight Calculator brought to you by HYPERFIT computes your Ideal Bodyweight (IBW) based on the ranges of your height and sex. 
+	</p>
+	Source: <a href="https://www.omnicalculator.com/health/ideal-weight#how-much-should-i-weight"> https://www.omnicalculator.com/health/ideal-weight#how-much-should-i-weight</a>
+
+	<ion-content>
+		<ion-item>
+			<ion-label>Height(Feet):</ion-label>  
+			<ion-input type="number" [(ngModel)]="height"></ion-input>
+		</ion-item>
+    <ion-item>
+    <ion-label> Height(inches): </ion-label>
+      <ion-input type="number" [(ngModel)]="inches"></ion-input>
+    </ion-item>
+		<ion-item>
+    <ion-label color="dark"> sex: </ion-label>
+    <ion-select interface="popover" [(ngModel)]="sex">
+      <ion-option value="m">Male</ion-option>
+      <ion-option value="f">Female</ion-option>
+    </ion-select>
+</ion-item>
+
+		<button ion-button color= "secondary" (click)="calculateBMI()">
+      Calculate
+    </button>
+
+		<ion-item *ngIf="IBW">
+			<h2>Your IBW according to: {{IBW}} <code> ({{IBWMessage}}) </code></h2>
+			<ion-item>
+  

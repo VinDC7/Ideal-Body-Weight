@@ -1,17 +1,39 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Contact
+      HYPERFIT CO.
     </ion-title>
   </ion-navbar>
 </ion-header>
-
 <ion-content>
-  <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
+ <ion-item>
+    <ion-label color="dark"> Height in Feet:</ion-label>
+    <ion-input type="number" [(ngModel)]="heightfeet"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="dark"> Height in Inches:</ion-label>
+    <ion-input type="number" [(ngModel)]="inch"></ion-input>
+  </ion-item>
+
     <ion-item>
-      <ion-icon name="ionic" item-left></ion-icon>
-      @ionicframework
-    </ion-item>
-  </ion-list>
+    <ion-label color="dark"> Sex: </ion-label>
+    <ion-select interface="popover" [(ngModel)]="sex">
+      <ion-option value="m">Male</ion-option>
+      <ion-option value="f">Female</ion-option>
+    </ion-select>
+</ion-item>
+   
+  <button ion-button color="secondary" (click)="calculateIBW()">
+    Calculate
+  </button>
+  
+  <ion-item *ngIf="riwc">
+    <h2>Ideal Weight Calculator:</h2>
+    <h2>Robinson: {{riwc}} {{IBWmessage}} </h2>
+    <h2>Miller: {{miwc}} {{IBWmessage}} </h2>
+    <h2>Hamwi: {{hiwc}} {{IBWmessage}}</h2>
+    <h2>Devine: {{diwc}} {{IBWmessage}}</h2>
+  </ion-item>
+
 </ion-content>
